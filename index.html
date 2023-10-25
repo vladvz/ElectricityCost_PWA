@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/png" href="https://edgestatic.azureedge.net/welcome/static/favicon.png">
+    <link rel="stylesheet" href="./converter.css">
+    <link rel="manifest" href="./manifest.json">
+    <title>Electricity cost</title>
+</head>
+
+<body>
+
+    <form id="converter">
+
+        <label for="input-price">Price (Euro/kWh)</label>
+        <input type="text" id="input-price" name="input-price" value="0.36" />
+
+        <div class="form-container">
+            <div class="form-group">
+                <label for="input-cons">Consumption</label>
+                <input type="text" id="input-cons" name="input-cons" value="10" />
+            </div>
+
+            <div class="form-group">
+                <label for="select-unit">&nbsp;</label>
+                <select id="select-unit" name="select-unit">
+                    <option value="wh" selected>Wh</option>
+                    <option value="kwh">kWh</option>
+                </select>
+            </div>
+        </div>
+
+        <label for="select-cost">Cost per</label>
+        <select id="select-cost" name="select-cost">
+            <option value="h">Hour</option>
+            <option value="d" selected>Day</option>
+            <option value="m">Month</option>
+            <option value="y">Year</option>
+        </select>
+
+        <label for="input-dur">Duration %</label>
+        <input type="text" id="input-dur" name="input-dur" value="100" />
+
+        <output name="output-cons" id="output-cons" for="input-price input-cons input-dur select-unit select-cost"></output>
+        <output name="output-cost" id="output-cost" for="input-price input-cons input-dur select-unit select-cost"></output>
+
+    </form>
+
+    <script src="./converter.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js', { scope: './' });
+        }
+    </script>
+
+</body>
+</html>
