@@ -15,12 +15,12 @@
     <form id="converter">
 
         <label for="input-price">Price (Euro/kWh)</label>
-        <input type="text" id="input-price" name="input-price" value="0.36" />
+        <input type="number" id="input-price" name="input-price" min="0" value="0.36" />
 
         <div class="form-container">
             <div class="form-group">
                 <label for="input-cons">Consumption</label>
-                <input type="text" id="input-cons" name="input-cons" value="10" />
+                <input type="number" id="input-cons" name="input-cons" min="0" value="10" />
             </div>
 
             <div class="form-group">
@@ -41,7 +41,7 @@
         </select>
 
         <label for="input-dur">Duration %</label>
-        <input type="text" id="input-dur" name="input-dur" value="100" />
+        <input type="number" id="input-dur" name="input-dur" min="0" value="100" />
 
         <output name="output-cons" id="output-cons" for="input-price input-cons input-dur select-unit select-cost"></output>
         <output name="output-cost" id="output-cost" for="input-price input-cons input-dur select-unit select-cost"></output>
